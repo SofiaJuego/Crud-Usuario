@@ -35,19 +35,14 @@ formulario.addEventListener("submit", (e) => {
     const valorPassword = password.value.trim()
     const valorPassword2 = password2.value.trim()
 
-    if (valorNombre === "" || isNaN(valorEdad) || valorEmail === "" || valorTelefono === "" || valorPassword === "" || valorPassword2 === "") {
-        error.textContent = "Todos los campos son obligatorios"
-        error.classList.remove("hidden")
-        return
-    } else {
-        registrarUsuario({ nombre: valorNombre, 
+    registrarUsuario({ nombre: valorNombre, 
             edad: valorEdad, 
             email: valorEmail, 
             telefono: valorTelefono, 
             activo: valorActivo, 
             password: valorPassword, 
             password2: valorPassword2 })
-    }
+
 
 })
 
@@ -66,6 +61,10 @@ function renderUsuarios() {
 
 function registrarUsuario(datos) {
     try {
+        if (datos.nombre === "" || isNaN(datos.edad) || datos.email === "" || datos.telefono === "" || datos.password === "" || datos.password2 === "") {
+            throw new Error("Todos los campos son obligatorios")
+    }
+
         if (datos.password !== datos.password2) {
             throw new Error("Las contraseñas no coinciden")
         }
@@ -85,8 +84,6 @@ function registrarUsuario(datos) {
             datos.password)
         listaUsuarios.push(usuario)
         renderUsuarios()
-        // console.log("usuario agregado:", usuario)
-        // console.log("lista completa:", listaUsuarios)
 
         formulario.reset()
         error.textContent = ""

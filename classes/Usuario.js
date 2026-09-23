@@ -41,8 +41,12 @@ class Usuario {
             throw new Error("La contraseña debe tener al menos 8 caracteres")
         }
 
-        if(typeof edad !== "number" || edad < 0 || edad > 99) {
-            throw new Error("La edad ingresada no es válida")
+        if(typeof edad !== "number" || edad <= 0 || edad > 99) {
+            throw new Error("La edad ingresada no es válida, debe ser un número entre 1 y 99")
+        }
+
+        if(isNaN(telefono) || telefono.length < 8) {
+            throw new Error("El teléfono ingresado no es válido, debe tener al menos 8 caracteres")
         }
         
         this.id = id
