@@ -1,0 +1,80 @@
+1. Objetivo
+
+Desarrollar una aplicación web interactiva que permita gestionar el alta y
+visualización de usuarios aplicando principios de Programación Orientada a
+Objetos (POO), encapsulamiento en JavaScript, validaciones en el
+frontend y renderizado dinámico en el DOM, utilizando TailwindCSS para el diseño
+de la interfaz.
+
+2. Estructura del Proyecto
+
+El proyecto debe respetar estrictamente la siguiente arquitectura de archivos:
+
+├── classes/
+   └── Usuario.js
+├── index.html
+└── index.js
+
+3. Requerimientos 
+
+A. Clase Usuario (classes/Usuario.js)
+
+La clase debe estar modularizada (utilizando export / import de ES6) y contar
+con las siguientes propiedades:
+
+  - Propiedades Públicas:
+      - id (puede ser autoincremental o generado dinámicamente)
+      - nombre (string)
+      - edad (number)
+      - email (string)
+      - telefono (string)
+      - activo (boolean)
+  - Propiedad Privada:
+      - password (string)
+
+B. Formulario de Carga y Validaciones (index.html e index.js)
+
+1.  Diseñar un formulario que contenga campos para ingresar todas las
+    propiedades del usuario.
+2.  Incluir dos campos de contraseña: "Contraseña" y "Confirmar contraseña".
+3.  Disponer de un botón "Guardar" para procesar los datos.
+4.  Validaciones obligatorias antes de instanciar el objeto:
+      - Todos los campos obligatorios deben estar completos.
+      - Formato válido de correo electrónico.
+      - Edad como valor numérico coherente (> 0).
+      - Coincidencia exacta entre ambos campos de contraseña.
+      - Manejo visual de errores (mensajes claros para el usuario cuando una
+        validación falle).
+
+C. Almacenamiento y Renderizado Dinámico
+
+1.  En index.js, mantener un array de usuarios que comience vacío (const
+    usuarios = [];).
+2.  Al superar las validaciones y presionar "Guardar":
+      - Instanciar un nuevo objeto de la clase Usuario.
+      - Agregarlo al array.
+      - Limpiar y reestablecer los campos del formulario.
+3.  Tabla de usuarios:
+      - Ubicada debajo del formulario.
+      - Debe actualizarse dinámicamente cada vez que se agregue un usuario al
+        array.
+      - Mostrar todas las propiedades públicas del usuario (el campo privado de
+        la contraseña jamás debe exponerse en el DOM ni en la tabla).
+      - Representar visualmente el estado activo (por ejemplo, con un badge de
+        estado o texto indicativo).
+
+D. Diseño e Interfaz
+
+  - Se debe utilizar TailwindCSS (mediante CLI) para estilizar la
+    aplicación.
+  - La interfaz debe ser prolija, intuitiva y contar con un diseño responsivo.
+
+4. Modalidad de Entrega
+
+  - Modalidad: Grupal.
+  - Medio de entrega: Enlace a un repositorio de GitHub.
+      - El repositorio debe incluir un archivo README.md con los nombres de los
+        integrantes y una breve descripción de la solución.
+  - Instancia de evaluación: Presentación oral grupal.
+      - Cada integrante deberá explicar partes del código y responder preguntas
+        teóricas/prácticas sobre el código del proyecto

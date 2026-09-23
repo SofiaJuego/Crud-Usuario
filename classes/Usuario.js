@@ -40,6 +40,10 @@ class Usuario {
         if (typeof password !== "string" || password.length < 8) {
             throw new Error("La contraseña debe tener al menos 8 caracteres")
         }
+
+        if(typeof edad !== "number" || edad < 0 || edad > 99) {
+            throw new Error("La edad ingresada no es válida")
+        }
         
         this.id = id
         this.nombre = nombre

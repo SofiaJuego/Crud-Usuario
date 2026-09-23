@@ -30,19 +30,15 @@ formulario.addEventListener("submit", (e) => {
     const valorNombre = nombre.value.trim()
     const valorEdad = parseInt(edad.value.trim())
     const valorEmail = email.value.trim()
-    const valorTelefono = parseInt(telefono.value.trim())
+    const valorTelefono = telefono.value.trim()
     const valorActivo = activo.checked
     const valorPassword = password.value.trim()
     const valorPassword2 = password2.value.trim()
 
-    if (valorNombre === "" 
-        || isNaN(valorEdad) 
-        || isNaN(valorTelefono) 
-        || valorEmail === "" 
-        || valorPassword === "" 
-        || valorPassword2 === "") {
-
+    if (valorNombre === "" || isNaN(valorEdad) || valorEmail === "" || valorTelefono === "" || valorPassword === "" || valorPassword2 === "") {
+        error.textContent = "Todos los campos son obligatorios"
         error.classList.remove("hidden")
+        return
     } else {
         registrarUsuario({ nombre: valorNombre, 
             edad: valorEdad, 
@@ -83,8 +79,8 @@ function registrarUsuario(datos) {
             idGenerado,
             datos.nombre,
             datos.edad,
-            datos.telefono,
             datos.email,
+            datos.telefono,
             datos.activo,
             datos.password)
         listaUsuarios.push(usuario)
@@ -93,6 +89,7 @@ function registrarUsuario(datos) {
         // console.log("lista completa:", listaUsuarios)
 
         formulario.reset()
+        error.textContent = ""
         error.classList.add("hidden")
 
     } catch (err) {
