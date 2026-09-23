@@ -10,16 +10,30 @@
 
 // Utilizar CSS para estilos, preferentemente TailwindCSS. Realizar validaciones.
 
+// A. Clase Usuario (classes/Usuario.js)
+
+// La clase debe estar modularizada (utilizando export / import de ES6) y contar
+// con las siguientes propiedades:
+
+//   - Propiedades Públicas:
+//       - id (puede ser autoincremental o generado dinámicamente)
+//       - nombre (string)
+//       - edad (number)
+//       - email (string)
+//       - telefono (string)
+//       - activo (boolean)
+//   - Propiedad Privada:
+//       - password (string)
 class Usuario {
     id
     nombre
-    email
     edad
+    email
     telefono
     activo
     #password
 
-    constructor(id,nombre, edad, telefono,email, activo, password) {
+    constructor(id,nombre, edad,email, telefono, activo, password) {
         if (typeof email !== "string" || !email.includes("@") || !email.includes(".")) {
             throw new Error("El email ingresado no es válido")
         }
@@ -30,14 +44,14 @@ class Usuario {
         this.id = id
         this.nombre = nombre
         this.edad = edad
-        this.telefono = telefono
         this.email = email
+        this.telefono = telefono
         this.activo = activo
         this.#password = password
     }
 
-    static crear(id,nombre, edad,telefono,email, activo, password) {
-        return new Usuario(id,nombre, edad, telefono, email, activo, password)
+    static crear(id,nombre, edad,email,telefono, activo, password) {
+        return new Usuario(id,nombre, edad, email, telefono, activo, password)
     }
 
     cambiarPin(passwordActual, passwordNuevo) {
