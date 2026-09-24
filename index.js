@@ -1,7 +1,6 @@
 import Usuario from "./classes/Usuario.js";
 
 const formulario = document.getElementById("formulario");
-const btnGuardar = document.getElementById("btnGuardar");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
 const nombre = document.getElementById("nombre");
