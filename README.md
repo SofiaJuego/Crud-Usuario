@@ -2,6 +2,8 @@
 
 Este proyecto consiste en una aplicación web interactiva desarrollada como parte de la evaluación práctica de JavaScript y manipulación del DOM. Permite registrar nuevos usuarios a través de un formulario con validaciones en tiempo real y mostrarlos dinámicamente en una tabla.
 
+Integrantes: Sofia Aguilar - Aldana Gonzalez - Cecilia Rodriguez
+
 ## 🛠️ Tecnologías Utilizadas
 
 * **HTML5:** Estructura semántica de la interfaz.

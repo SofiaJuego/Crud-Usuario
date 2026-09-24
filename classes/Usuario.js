@@ -45,7 +45,7 @@ class Usuario {
             throw new Error("La edad ingresada no es válida, debe ser un número entre 1 y 99")
         }
 
-        if(isNaN(telefono) || telefono.length < 8) {
+        if(typeof telefono !== "string" || telefono.length < 8) {
             throw new Error("El teléfono ingresado no es válido, debe tener al menos 8 caracteres")
         }
         
@@ -57,21 +57,7 @@ class Usuario {
         this.activo = activo
         this.#password = password
     }
-    static crear(id,nombre, edad,email,telefono, activo, password) {
-        return new Usuario(id,nombre, edad, email, telefono, activo, password)
-    }
 
-    cambiarPin(passwordActual, passwordNuevo) {
-        if (passwordActual === this.#password &&
-            typeof passwordNuevo === "string" &&
-            passwordNuevo.length >= 8) {
-            this.#password = passwordNuevo
-            return true
-        }
-        return false
-
-
-    }
 }
 
 export default Usuario;

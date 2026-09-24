@@ -49,13 +49,17 @@ formulario.addEventListener("submit", (e) => {
 function renderUsuarios() {
     usuariosList.innerHTML = ""
     listaUsuarios.forEach(usuario => {
-        const li = document.createElement("li")
-        li.className = "border border-gray-300 rounded-lg p-2"
-        li.innerHTML = `<div> 
-        <p class="font-bold">Nombre: ${usuario.nombre} <span class="text-sm text-gray-500">ID: ${usuario.id}</span></p>
-        <p class="text-sm">Edad: ${usuario.edad} | Teléfono: ${usuario.telefono} | Email: ${usuario.email} | Activo: ${usuario.activo ? "Sí" : "No"}</p>
-        </div>`
-        usuariosList.appendChild(li)
+        const tr = document.createElement("tr")
+        tr.className = "border-b text-sm text-gray-700"
+        tr.innerHTML = `
+            <td class="p-2 text-center font-medium">${usuario.id}</td>
+            <td class="p-2 whitespace-nowrap">${usuario.nombre}</td>
+            <td class="p-2 text-center">${usuario.edad}</td>
+            <td class="p-2 whitespace-nowrap">${usuario.telefono}</td>
+            <td class="p-2 break-all">${usuario.email}</td>
+            <td class="p-2 text-center">${usuario.activo ? "Sí" : "No"}</td>
+        `
+        usuariosList.appendChild(tr)
     })
 }
 
