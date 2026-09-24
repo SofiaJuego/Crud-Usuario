@@ -57,7 +57,6 @@ class Usuario {
         this.activo = activo
         this.#password = password
     }
-
     static crear(id,nombre, edad,email,telefono, activo, password) {
         return new Usuario(id,nombre, edad, email, telefono, activo, password)
     }
